@@ -1,0 +1,32 @@
+package my.study.chapter02.tmp_class;
+
+import my.study.chapter02.myServlet.IServlet;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Map;
+
+/**
+ * Created by wangbeiying on 2017/3/6.
+ */
+public class Doupload_msp implements IServlet{
+    @Override
+    public void service(Map<String, String> inputMap, OutputStream out) throws IOException{
+        out.write("<!DOCTYPE html>".getBytes());
+        out.write("<html lang=\"en\">".getBytes());
+        out.write("<head>".getBytes());
+        out.write("<meta charset=\"UTF-8\">".getBytes());
+        out.write("<title>upload page</title>".getBytes());
+        out.write("</head>".getBytes());
+        out.write("<body>".getBytes());
+        out.write("<form action=\"http://192.168.31.72/upload\" method=\"post\" enctype=\"multipart/form-data\">".getBytes());
+        out.write("<input type=\"text\" name=\"color\"/><br/>".getBytes());
+        out.write("<input type=\"file\" name=\"fileUpload\"/><br/>".getBytes());
+        out.write("<input type=\"submit\" value=\"提交\"/>".getBytes());
+        out.write("</form>".getBytes());
+        out.write("</body>".getBytes());
+        out.write("</html>".getBytes());
+        out.flush();
+        out.close();
+    }
+}
